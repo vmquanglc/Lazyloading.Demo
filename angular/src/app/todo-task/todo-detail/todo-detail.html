@@ -1,0 +1,85 @@
+<div class="popup-container">
+  <!-- HEADER -->
+  <div class="popup-header">
+    <h2>Todo Task Detail</h2>
+  </div>
+
+  <!-- BODY: scrollable -->
+  <div class="popup-body">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" [(ngModel)]="task.title" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label>Status:</label>
+        <!-- <select [(ngModel)]="task.status" class="form-control">
+          <option *ngFor="let s of statusOptions" [value]="s">{{ s }}</option>
+        </select> -->
+      </div>
+
+      <div class="date-group">
+        <div class="form-group">
+          <label>Start Date:</label>
+          <input type="date" [(ngModel)]="formattedStartDate" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label>End Date:</label>
+          <input type="date" [(ngModel)]="formattedEndDate" class="form-control" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea [(ngModel)]="task.description" class="form-control description"></textarea>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+      <!-- CHECKLIST -->
+      <div class="panel-section">
+        <div class="panel-header">
+          <label>Checklist: {{task.checklistItems?.length ?? 0}}</label>
+        </div>
+        <ul class="checklist">
+          <li *ngFor="let item of task.checklistItems">
+            <input type="checkbox" [(ngModel)]="item.done" />
+            <input type="text" [(ngModel)]="item.content" class="checklist-input" />
+          </li>
+        </ul>
+      </div>
+
+      <!-- ATTACHMENTS -->
+      <div class="panel-section">
+        <div class="panel-header">
+          <label>Attachments: {{task.uploadFiles ?.length ?? 0}}</label>
+        </div>
+        <ul class="attachments">
+          <li *ngFor="let file of task.uploadFiles">
+            <span class="file-icon">
+              <i *ngIf="file.fileType === 'application/pdf'" class="fas fa-file-pdf"></i>
+              <i *ngIf="file.fileType.startsWith('image/')" class="fas fa-file-image"></i>
+              <i *ngIf="!file.fileType.startsWith('image/') && file.fileType !== 'application/pdf'" class="fas fa-file"></i>
+            </span>
+            <span (click)="viewAttachment(file)" class="attachment-link">
+              {{ file.fileName }} ({{ formatFileSize(file.fileSize) }})
+            </span>
+          </li>
+        </ul>
+        <input type="file" (change)="addAttachment($event.target)" />
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="popup-footer">
+    <!-- <button class="btn btn-save" (click)="save()">Save</button> -->
+    <button class="btn btn-cancel" (click)="close()">Cancel</button>
+  </div>
+</div>

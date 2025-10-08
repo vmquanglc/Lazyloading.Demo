@@ -1,0 +1,26 @@
+<div class="table-wrapper">
+  <table class="todo-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Checklist Quantity</th>
+        <th>UploadFile Quantity</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.title }}</td>
+        <td><span [ngClass]="statusClass(task.status)">{{ TodoTaskStatusMap[task.status] }}</span></td>
+        <td>{{ task.startDate | date:'dd/MM/yyyy' }}</td>
+        <td>{{ task.endDate | date:'dd/MM/yyyy' }}</td>
+        <td>{{ task.checklistCount ?? 0  }}</td>
+        <td>{{ task.uploadFileCount ?? 0  }}</td>
+        <td><button class="btn-view" (click)="viewDetail(task.id)">View</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

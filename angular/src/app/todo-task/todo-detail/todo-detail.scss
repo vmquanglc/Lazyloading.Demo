@@ -1,0 +1,134 @@
+.popup-container {
+  width: 1100px;
+  max-width: 95vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  background-color: #fff;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.popup-header {
+  padding: 15px 20px;
+  background-color: #4a76a8;
+  color: white;
+  font-size: 22px;
+}
+
+.popup-body {
+  display: flex;
+  gap: 20px;
+  padding: 15px 20px;
+  flex: 1;
+  overflow-y: auto; /* scroll body nếu cao */
+}
+
+.left-panel {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Form controls */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-control {
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+textarea.description {
+  min-height: 120px;
+  max-height: 200px;
+  overflow-y: auto;
+  resize: vertical;
+}
+
+/* Panel section: checklist & attachments */
+.panel-section {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+}
+
+.checklist, .attachments {
+  list-style: none;
+  margin: 0;
+  padding: 5px 10px;
+  max-height: 180px; /* scroll nếu > 5 item */
+  overflow-y: auto;
+}
+
+.checklist li, .attachments li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.checklist-input {
+  flex: 1;
+  padding: 4px 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Attachments style */
+.file-icon {
+  width: 20px;
+  text-align: center;
+  color: #4a76a8;
+}
+.attachment-link {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #2c3e50;
+}
+.btn-remove {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+.btn-remove:hover { background-color: #c0392b; }
+.btn-add { background-color: #4a76a8; color: white; border: none; border-radius: 4px; padding: 2px 6px; cursor: pointer; }
+.btn-add:hover { background-color: #34527a; }
+
+/* Footer */
+.popup-footer {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  background-color: #f1f1f1;
+}
+.btn { padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; font-weight: bold; }
+.btn-save { background-color: #4a76a8; color: white; }
+.btn-save:hover { background-color: #34527a; }
+.btn-cancel { background-color: #ccc; }
+.btn-cancel:hover { background-color: #999; }
