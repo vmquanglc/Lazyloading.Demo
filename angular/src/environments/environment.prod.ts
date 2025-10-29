@@ -29,7 +29,7 @@ export const environment = {
     },
   },
   remoteEnv: {
-    url: '/getEnvConfig',
-    mergeStrategy: 'deepmerge'
-  }
+    url: '/assets/appsettings.json',
+    mergeStrategy: 'deepmerge',
+  },
 } as Environment;

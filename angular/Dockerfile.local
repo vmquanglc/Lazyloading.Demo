@@ -1,5 +1,10 @@
 FROM nginx:alpine
 WORKDIR /app
+
 COPY nginx.conf  /etc/nginx/conf.d/default.conf
+
 COPY dist/Demo/browser /usr/share/nginx/html
-COPY dynamic-env.json /usr/share/nginx/html
+
+# Copy script to generate appsettings.json from environment variables
+COPY generate-env.sh /docker-entrypoint.d/40-generate-env.sh
+RUN chmod +x /docker-entrypoint.d/40-generate-env.sh

@@ -6,4 +6,15 @@ services:
     container_name: demo-angular-app
     ports:
       - "4200:80"
+    environment:
+      - PRODUCTION=true
+      - APP_NAME=Demooooo
+      - APP_BASE_URL=http://quangvm:4200
+      - OAUTH_ISSUER=https://quangvm:44311/
+      - OAUTH_CLIENT_ID=Demo_Appppp
+      - OAUTH_RESPONSE_TYPE=codeeee
+      - OAUTH_SCOPE=offline_access Demooooo
+      - OAUTH_REQUIRE_HTTPS=true
+      - API_DEFAULT_URL=https://quangvm:44311
+      - API_DEFAULT_ROOT_NAMESPACE=Lazyloading.Demooo
     restart: unless-stopped
