@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  demo-angular:
+    image: demo-angular:latest
+    container_name: demo-angular-app
+    ports:
+      - "4200:80"
+    restart: unless-stopped
